@@ -1,0 +1,27 @@
+﻿1) Installed the package ML.NET, ML.NET.FastTree()
+2) step 1 for ML.NET is to load training data
+3) For performing any ML.NET operation we need to create an instance of MLContext
+4) We can feed data to MLContext in many ways (generic lists, arrays, EFs, Data sets).
+So We can use the interface (hides implementation details) IDataView to feed data to the 
+MLContext in any data form (specifed above) we want
+5) Pipeline : series of workflow which gets executed to build the final model
+6) Our pipeline :
+				unstructured                  Vector
+	IDataView ----------------> Transform -------------> Algorithm -------->Model
+					text					  Numeric
+7) Feed the vectorised feature to a learning algorithm (choosing the learning algorithm is 
+the most important)
+8) Since we have to categorize the feedback texts into good or bad, this is a classification
+problem
+9) So we'll use binary clasification (since only two possible outcomes isGood : <true|false>)
+using FastTree() (decision tree) trainer
+10) We train our model using the created pipeline
+11) We need to test our model's accuracy. For this we create testData and a function to load 
+it just like training data
+12) Add attributes to the fields of feedback training data class to specify which fields are
+features and which is output. Labels specified here, whereas features are specified in 
+pipeline 
+
+
+problems : 
+data annotation for columns not working (had to rename Label and PredictionLabel)
